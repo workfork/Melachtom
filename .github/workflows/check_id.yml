@@ -1,3 +1,8 @@
+Authorization: Bearer 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
+Accept: application/vnd.github+json
+X-GitHub-Api-Version: 2022-11-28
+
+
 name: Check ID Number
 
 on:
