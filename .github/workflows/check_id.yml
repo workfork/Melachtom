@@ -20,4 +20,10 @@ jobs:
           python-version: '3.x'
 
       - name: Run ID validation
-        run: python id_checker.py ${{ github.event.inputs.id_number }}
+        id: validate
+        run: |
+          RESULT=$(python id_checker.py ${{ github.event.inputs.id_number }})
+          echo "result=$RESULT" >> $GITHUB_OUTPUT
+
+    outputs:
+      validation_result: ${{ steps.validate.outputs.result }}
