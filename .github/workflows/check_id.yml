@@ -1,0 +1,23 @@
+name: Check ID Number
+
+on:
+  workflow_dispatch:
+    inputs:
+      id_number:
+        description: 'Israeli ID number to check'
+        required: true
+
+jobs:
+  validate_id:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Run ID validation
+        run: python id_checker.py ${{ github.event.inputs.id_number }}
