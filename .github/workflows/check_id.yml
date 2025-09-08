@@ -3,7 +3,7 @@
 name: Check ID Number
 
 on:
-  repository_dispatch:
+  workflow_dispatch:
     inputs:
       id_number:
         description: 'Israeli ID number to check'
